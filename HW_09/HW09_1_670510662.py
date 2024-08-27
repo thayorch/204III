@@ -3,19 +3,24 @@
 # HW09_1
 # 204111 Sec 001
 
-def left_max(list_a: list[int],current_max=None,i=0) -> list[int]:
-    if i == len(list_a):
-        return list_a
+# def left_max(list_a: list[int],current_max=None,i=0) -> list[int]:
+#     if i == len(list_a):
+#         return list_a
     
-    if current_max is None:
-        current_max = list_a[0]
+#     if current_max is None:
+#         current_max = list_a[0]
     
-    current_max = max(list_a[i], current_max)
-    if(list_a[i] < current_max):
-        list_a[i] = current_max
+#     current_max = max(list_a[i], current_max)
+#     if(list_a[i] < current_max):
+#         list_a[i] = current_max
     
-    # print(current_max)
-    return left_max(list_a, current_max, i+1)  
+#     # print(current_max)
+#     return left_max(list_a, current_max, i+1)  
+
+from functools import reduce
+def left_max(list_a: list[int]) -> list[int]:
+    return list(reduce(lambda x, y: x + [max(x[-1], y)], list_a[1:], [list_a[0]]))
+
 
 if __name__ == '__main__':
     print("Testing...")
