@@ -12,13 +12,9 @@ def patterned_message(message: str, pattern: str) -> None:
     def pattern_x(msg_index=None):
         if msg_index is None:
             msg_index = 0
-            
         if msg_index >= len(message):
             print(result)
         result = '\n'.join()
-
-        msg_index += sum(line.count('*') for line in pattern.splitlines())
-
         print(result)
 
 if __name__ == "__main__":

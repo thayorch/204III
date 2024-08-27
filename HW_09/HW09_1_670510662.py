@@ -3,24 +3,31 @@
 # HW09_1
 # 204111 Sec 001
 
-def left_max(list_a: list[int],current_max=None,i=0) -> list[int]:
+# def left_max(list_a: list[int],current_max=None,i=0) -> list[int]:
+    # if i == len(list_a):
+    #     return list_a
     
-    if current_max is None:
-        current_max = list_a[0]
+    # if current_max is None:
+    #     current_max = list_a[0]
+    
+    # current_max = max(list_a[i], current_max)
+    # if(list_a[i] < current_max):
+    #     list_a[i] = current_max
+    
+    # # print(current_max)
+    # return left_max(list_a, current_max, i+1) 
 
-    if i >= len(list_a):
-        return list_a
-    
-    current_max = max(current_max, list_a[i])
-    
-    if(list_a[i] < current_max):
-        list_a[i] = current_max
-        
-    return left_max(list_a,current_max,i+1) 
+def left_max(list_a: list[int]) -> list[int]:
+    return list(map(lambda i: list_a[i]< , range(len(list_a))))
+
 
 if __name__ == '__main__':
     print("Testing...")
-    # print(left_max([2, 8, 8, 8, 8, 1, 9]))
-    assert left_max([2, 8, 1]) == [2, 8, 8]
-    assert left_max([3, 3, 1, 1, 2, 4]) == [3, 3, 3, 3, 3, 4]
+    # assert left_max([2, 8, 1]) == [2, 8, 8]
+    # assert left_max([3, 3, 1, 1, 2, 4]) == [3, 3, 3, 3, 3, 4]
+    # assert left_max([5, 4, 3, 2, 1,]) == [5, 5, 5, 5, 5]
+    # assert left_max([0, 0, 0, 0, 0]) == [0, 0, 0, 0, 0]
+    # assert left_max([7]) == [7]
+    # assert left_max([1,2,3,4,5]) == [1, 2, 3, 4, 5]    
+    print(left_max([2,8,1]))
     print("AllPass!!")

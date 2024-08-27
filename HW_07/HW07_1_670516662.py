@@ -9,7 +9,7 @@ def main():
     # print(print_polynomial([(4, -6), (2, -8), (3, 0)],'x'))
     # print(print_polynomial([(0, 0),  (1, 1)],'y'))
     # print(print_polynomial([(0, 0),  (1, 0)],''))
-    # # print(print_polynomial([(0, 0)],'y'))
+    # print(print_polynomial([(0, 0)],'y'))
     # print(print_polynomial([(0, -5)],'y')) ###
     # print(print_polynomial([(1, 4), (1, 1), (3, 6)],'N'))
     # print(print_polynomial([(2,0), (0, -1)], 's'))
@@ -26,7 +26,7 @@ def main():
     # print(print_polynomial([(5, 1), (4, 1), (0, 1)],"x"))
     # print(print_polynomial([(5, 1), (4, -1), (0, 1)],"x"))
     # print(print_polynomial([(0, 5), (1, 0)],'y'))
-    print(print_polynomial([(70,51), (1,-27)],'F'))
+    # print(print_polynomial([(70,51), (1,-27)],'F'))
     test_polinomial() 
 
 def print_polynomial(pc_list: list[tuple[int, float]], v: str):
@@ -36,18 +36,11 @@ def print_polynomial(pc_list: list[tuple[int, float]], v: str):
     lists_zero_power = list(filter(lambda x: x[0] == 0,temp))
     lists_max_power = list(filter(lambda x: x == max(temp) and x[0] != 0,temp))
     lists_other_power = list(filter(lambda x: x[0] != 0 and x != max(temp) ,temp))
-    # print (lists_zero_power,lists_other_power,lists_max_power)
-    # return lists_zero_power
-    # return lists_other_power
-    # return temp[-1]
-    # return temp, lists_zero_power, lists_other_power, lists_max_power
 
     start = list(map(lambda x: max_list_case(x[0],x[1],v) ,lists_max_power))
     mid = list(map(lambda x: other_power_case(x[0],x[1],v) ,lists_other_power))
     ends = list(map(lambda x: zero_power_case(x[1]) ,lists_zero_power))
     # print(start, mid, ends)
-    # return ''.join(ends)
-    # return start + ends
     if(len(''.join(start).strip())+len(''.join(mid).strip()) == 0):
         return (''.join(ends)).replace(' ','').strip('+')
     else:
