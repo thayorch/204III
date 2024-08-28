@@ -5,17 +5,13 @@
 
 def patterned_message(message: str, pattern: str) -> None:
     message = message.replace(" ", "")
-    pattern_without_ = pattern.replace(" ", "")
-    star_count = len(pattern_without_)
+    len_star = pattern.count("*")
+    len_mess = len(message)
     
-    # print(star_count)
-    def pattern_x(msg_index=None):
-        if msg_index is None:
-            msg_index = 0
-        if msg_index >= len(message):
-            print(result)
-        result = '\n'.join()
-        print(result)
-
+    if len_star > len_mess:
+        message = message*len_star        
+    # print(message)
+    pattern = pattern.replace("*", "{}")
+    print(pattern.format(*message))
 if __name__ == "__main__":
     patterned_message("123", "** *** ** ** *")
