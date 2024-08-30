@@ -37,7 +37,7 @@ def cenntered_list(lists_left, lists_right, sep, n,lists_top, max_len):
     # return  list(map(lambda left, right: str(left) + sep * (2 * (len(lists_right)-1 )) + str(right), lists_left, lists_right))
     
 
-                       
+
 def test():
     assert square_frame(3) == """1 2 3\n8   4\n7 6 5"""
     assert square_frame(4,'.') == """01.02.03.04\n12.......05\n11.......06\n10.09.08.07\n""" 
