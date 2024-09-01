@@ -168,7 +168,7 @@ def sive_of_eratosthenes(n):
     list_of_prime = list(filter(lambda x: x != 0, list_of_n))
     print(list_of_prime)
 
-def eratosthenes(n, show_step=False):
+def eratosthenes(n, show_step: bool=False):
     list_number = list(range(2, n + 1))
     pir = 2
     index = 0
@@ -176,6 +176,10 @@ def eratosthenes(n, show_step=False):
     while pir ** 2 <= n:
         list_number = list(filter(lambda x: x == pir or x % pir != 0, list_number))
 
+
+        if show_step:
+            print(str(pir) + ':', list_number)
+            
         index += 1
         pir = list_number[index]
 
@@ -209,4 +213,4 @@ if __name__ == "__main__":
     # print(longestWord(mywords))  # ['this', 'is', 'really', 'nice']
     # print(longestWord(*mywords)) # really
     # sive_of_eratosthenes(100)
-    print(eratosthenes(100))
+    print(eratosthenes(20,True))
