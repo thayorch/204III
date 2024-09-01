@@ -18,16 +18,12 @@ def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str], result=[]) -> list
         return result
     
     if l_len > 0 :
-        # l_head = l_lane[0]
         result.append(l_lane.pop(0))
-        l_tail = l_lane[:]
     if r_len > 0 :
-        # r_head = r_lane[0] 
         result.append(r_lane.pop(0))
-        r_tail = r_lane[:]
 
 # append head
-    return arrival_sequences(l_tail,r_tail,result)
+    return arrival_sequences(l_lane, r_lane, result)
 
     
 
