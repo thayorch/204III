@@ -7,6 +7,16 @@
 # r_lane เป็น Tuple ของ String แทนเลขประจารถจากบริษัทส้มที่วิ่งทางขวา 
 # กำหนดให้แต่ละบริษัทมีรถในขบวนอย่างน้อยหนึ่งคัน โดย String ของลำดับที่เป็น Output จะอยู่ในรูป เลขประจำรถคั่นด้วย '>'
 
+# l[0]>l[1]>r[0]>r[1]
+# l[0]>r[0]>r[1]>l[1]
+# l[0]>r[0]>l[1]>r[1]
+
+# r[0]>l[0]>l[1]>r[1]
+# r[0]>l[0]>r[1]>l[1] 
+# r[0]>r[1]>l[0]>l[1]
+
+
+
 def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str], result=[]) -> list[str]:
     l_lane = list(l_lane)
     r_lane = list(r_lane)
@@ -14,17 +24,6 @@ def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str], result=[]) -> list
     l_len = len(l_lane)
     r_len = len(r_lane)
     
-    if l_len == 0 and r_len == 0:
-        return result
-    
-    if l_len > 0 :
-        result.append(l_lane.pop(0))
-    if r_len > 0 :
-        result.append(r_lane.pop(0))
-
-# append head
-    return arrival_sequences(l_lane, r_lane, result)
-
     
 
 if __name__ == '__main__':
