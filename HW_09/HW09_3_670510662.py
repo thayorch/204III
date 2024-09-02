@@ -55,9 +55,12 @@ def format_id(id_number: str) -> str:
 
 if __name__ == "__main__":
     print("Testing...")
-    # print(unmask_id('1-2345-67890-12-3'))
-    # print(unmask_id('1-2345-67890-12-*'))
-    # print(unmask_id('1-2345-67890-1*-*'))
+    print(unmask_id('1-2345-67890-12-3'))
+    print(unmask_id('1-2345-67890-12-*'))
+    print(unmask_id('1-2345-6789p*-12-*'))
+    assert unmask_id('1-2345-67890-12-3') == []
+    assert unmask_id('1-2345-67890-12-*') == ['1-2345-67890-12-1']
+    assert unmask_id('1-2345-6789p*-12-*') == []
     assert unmask_id('1-2345-67890-1*-*') == ['1-2345-67890-10-4',
 '1-2345-67890-11-2',
 '1-2345-67890-12-1',

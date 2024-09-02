@@ -22,6 +22,7 @@ def median_of_median(list_a: list[float]) -> float:
 
 if __name__ == '__main__':
     print("Testing...")
+    print(median_of_median([37, 59, 18, 24, 93, 34]))
     # print(median_of_median([28, 14, 13, 21, 19, 27, 23, 30, 16, 3]))
     epsilon=10**-3
     assert isclose(median_of_median([28, 14, 13, 21, 19, 27, 23, 30, 16, 3]), 21.0, abs_tol=epsilon)
