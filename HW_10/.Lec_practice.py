@@ -70,6 +70,12 @@ def int_to_bin(x):
         x //= 2
     return result
     # อันนี้สั้นกว่า
+def int_to_bin(x: int) -> str:
+    result = ""
+    while x > 0:
+        result = str(x % 2) + result
+        x //= 2
+    return result
     # return '{0:b}'.format(x)
 
 def find(word, letter):
@@ -184,14 +190,17 @@ def eratosthenes(n, show_step: bool=False):
         pir = list_number[index]
 
     return list_number
+
+
     
+
 
 if __name__ == "__main__":
     # print(sum_1_to_n(3))
     # print(factorial(5))
     # while_1()
     # print(gcd(246,72))
-    guess_num()
+    # guess_num()
     # print(int_power(2.5,3))
     # print(int_to_bin(10))
     # print(score_average())
