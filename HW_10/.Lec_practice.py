@@ -191,7 +191,7 @@ if __name__ == "__main__":
     # print(factorial(5))
     # while_1()
     # print(gcd(246,72))
-    # guess_num()
+    guess_num()
     # print(int_power(2.5,3))
     # print(int_to_bin(10))
     # print(score_average())
@@ -213,4 +213,4 @@ if __name__ == "__main__":
     # print(longestWord(mywords))  # ['this', 'is', 'really', 'nice']
     # print(longestWord(*mywords)) # really
     # sive_of_eratosthenes(100)
-    print(eratosthenes(20,True))
+    # print(eratosthenes(20,True))

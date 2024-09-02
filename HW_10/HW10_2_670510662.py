@@ -17,22 +17,31 @@
 
 
 
-def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str], result=[]) -> list[str]:
-    l_lane = list(l_lane)
-    r_lane = list(r_lane)
+
+def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str]) -> list[str]:
+    list_of_seq = []
+    def generate_seq(l_lane, r_lane, result: list, list_of_seq: list, i=0, j=0):
+        if i == len(l_lane) and j == len(r_lane):
+            list_of_seq.append('>'.join(result))
+            return None
+
+        if i < len(l_lane):
+            generate_seq(l_lane, r_lane, result + [l_lane[i]], list_of_seq,  i + 1, j, )
+
+        if j < len(r_lane):
+            generate_seq(l_lane, r_lane, result + [r_lane[j]], list_of_seq, i, j + 1)    
+    generate_seq(l_lane, r_lane, [], list_of_seq)
+    return list_of_seq
+
     
-    l_len = len(l_lane)
-    r_len = len(r_lane)
     
     
 
 if __name__ == '__main__':
     print("Testing...")
-    # print(arrival_sequences(('R32',), ('O9', 'O5')))
-    print(arrival_sequences(('R2','R4'), ('O34', 'O22')))
-#     assert arrival_sequences(('R32',), ('O9', 'O5')) == ['O9>O5>R32',
-# 'O9>R32>O5',
-# 'R32>O9>O5']   
+    # print(arrival_seq(('R32',), ('O9', 'O5')))
+    # print(arrival_seq(('R2','R4'), ('O34', 'O22')))
+    assert arrival_sequences(('R32',), ('O9', 'O5')) == ['R32>O9>O5', 'O9>R32>O5', 'O9>O5>R32']
     assert arrival_sequences(('R2','R4'), ('O34', 'O22')) == ['R2>R4>O34>O22',
 'R2>O34>R4>O22',
 'R2>O34>O22>R4',
