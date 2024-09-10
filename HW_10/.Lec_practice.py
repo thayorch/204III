@@ -192,9 +192,32 @@ def eratosthenes(n, show_step: bool=False):
     return list_number
 
 
-    
+def f(x, y=10):
+    return (x, y)
 
+def f_d_u_darg(x, list_x=[]):
+    list_x.append(x)
+    return list_x
 
+def f_ine_work_around_for_muted(x, list_x=None):
+    if list_x is None:
+        list_x = []
+    list_x.append(x)
+    return list_x
+
+# Function Parameter
+
+def derivative(f, x):
+    h = 10**-8
+    return (f(x+h) - f(x))/h
+
+def f(x):
+    return 4*x+3
+
+def g(x):
+    return 4*x**2 +3
+
+        
 if __name__ == "__main__":
     # print(sum_1_to_n(3))
     # print(factorial(5))
@@ -223,3 +246,9 @@ if __name__ == "__main__":
     # print(longestWord(*mywords)) # really
     # sive_of_eratosthenes(100)
     # print(eratosthenes(20,True))
+    # print(f(5))
+    # print(f_d_u_darg(1),f_d_u_darg(2))
+    # print(f_ine_work_around_for_muted(1));
+    # print(f_ine_work_around_for_muted(2));
+    # print(derivative(f,2))    
+    # print(derivative(g,2))    
