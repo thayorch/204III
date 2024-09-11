@@ -6,7 +6,22 @@
     
 def split_and_merge(n: int) -> list[str]:
     # Slide w11_a_lec_1_recursion_part_ii [Assignment Page 16]
-    return arrival_sequences()
+    base_object = set(map(int,range(1,n+1)))  # { 1 , 2 , 3 }
+    list_1 = list()
+    len_obj = len(base_object)
+
+    while len_obj > 0:
+        for i in base_object:
+            list_1.append((i,))
+        len_obj-=1
+    return list_1
+    # return list(map(lambda x:x,base_object))
+
+
+
+
+
+    # return arrival_sequences() 
 
 def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str]) -> list[str]:
     list_of_seq = []
