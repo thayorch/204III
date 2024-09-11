@@ -5,9 +5,8 @@
 # 204111 Sec 001
     
 def split_and_merge(n: int) -> list[str]:
-    list_1 = tuple(map(str,range(1,n-1)))
-    list_2 = tuple(map(str,range(n-1,n+1)))
-    return arrival_sequences(list_1,list_2)
+    # Slide w11_a_lec_1_recursion_part_ii [Assignment Page 16]
+    return arrival_sequences()
 
 def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str]) -> list[str]:
     list_of_seq = []
@@ -23,6 +22,7 @@ def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str]) -> list[str]:
             generate_seq(l_lane, r_lane, result + [r_lane[j]], list_of_seq, i, j + 1)    
     generate_seq(l_lane, r_lane, [], list_of_seq)
     return list_of_seq
+    
 
 if __name__ == '__main__':
     print(split_and_merge(3))   # ['1>2>3', '1>3>2', '2>1>3', '2>3>1','3>1>2']
