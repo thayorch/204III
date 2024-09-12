@@ -1,7 +1,7 @@
 #!usr/bin/env python3
 # Thadchanon Maidee (Ice-lnwza)
 # 670510662
-# HW11_2
+# HW11_3
 # 204111 Sec 001
 
 
@@ -12,7 +12,7 @@ def runner_up() -> None:
     average = 0.0
 
     for i in range(students_count):
-        current_point = int(input("Enter score:"))
+        current_point = float(input("Enter score: "))
         average += current_point
 
         if current_point > max_score:
@@ -20,6 +20,7 @@ def runner_up() -> None:
             max_score = current_point
         elif current_point > runner_up and current_point != max_score:
             runner_up = current_point
+
 
     print("---")
 

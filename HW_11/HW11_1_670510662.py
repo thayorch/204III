@@ -4,6 +4,7 @@
 # HW11_1
 # 204111 Sec 001
 
+
 unit_list = {
     "zero":0, 'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,
     'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10,
@@ -33,8 +34,8 @@ def words_to_num(words):
                 i[0] = i[0] + i[1]
                 del i[1]
     # print(numbers)
-    return sum(map(lambda x: x[0], numbers))
 
+    return sum(map(lambda x:x[0],numbers))
 
 if __name__ == "__main__":
     print(words_to_num("fourteen"))
