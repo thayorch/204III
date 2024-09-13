@@ -16,6 +16,27 @@
 # r[0]>r[1]>l[0]>l[1]
 
 
+def arrival_sequences_sec_2(l_lane, r_lane):
+    def arr_rec(l_lane, r_lane):
+        #base case
+        if not l_lane:
+            return ['>'.join(r_lane)]
+        if not r_lane:
+            return ['>'.join(l_lane)]
+
+        # pickup nezt one from left 
+        temp = arr_rec(l_lane[1:], r_lane)
+        q1 = list(map(lambda x: l_lane[0]+'>'+x, temp))
+        
+        temp = arr_rec(l_lane, r_lane[1:])
+        q2 = list(map(lambda x: r_lane[0]+'>'+x, temp))
+
+        return q1 + q2
+
+    result = arr_rec(l_lane, r_lane)    
+
+    return result
+
 
 
 def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str]) -> list[str]:
@@ -39,10 +60,10 @@ def arrival_sequences(l_lane: tuple[str], r_lane: tuple[str]) -> list[str]:
 
 if __name__ == '__main__':
     print("Testing...")
-    # print(arrival_seq(('R32',), ('O9', 'O5')))
-    # print(arrival_seq(('R2','R4'), ('O34', 'O22')))
-    assert arrival_sequences(('R32',), ('O9', 'O5')) == ['R32>O9>O5', 'O9>R32>O5', 'O9>O5>R32']
-    assert arrival_sequences(('R2','R4'), ('O34', 'O22')) == ['R2>R4>O34>O22',
+    # print(arrival_sequences_sec_2(('R32',), ('O9', 'O5')))
+    # print(arrival_sequences_sec_2(('R2','R4'), ('O34', 'O22')))
+    assert arrival_sequences_sec_2(('R32',), ('O9', 'O5')) == ['R32>O9>O5', 'O9>R32>O5', 'O9>O5>R32']
+    assert arrival_sequences_sec_2(('R2','R4'), ('O34', 'O22')) == ['R2>R4>O34>O22',
 'R2>O34>R4>O22',
 'R2>O34>O22>R4',
 'O34>R2>R4>O22',

@@ -6,10 +6,13 @@
 
 def polynomial_addition(p1, p2):
     list_poly = sorted((p1 + p2), reverse=True)
+    # print(list_poly)
     result = []
     index = 0
+    
     # index in list
     while index != len(list_poly):
+        print(result)
 
         if index + 1 >= len(list_poly):
             result.append(list_poly[index])
@@ -19,9 +22,11 @@ def polynomial_addition(p1, p2):
             result.append((list_poly[index][0], list_poly[index][1] + list_poly[index + 1][1]))
             index += 2
             continue
+        
         else:
             result.append(list_poly[index])
             index += 1
+            
 # remove coeff == 0
     result = list(filter(lambda x: x[1] != 0, result))
     

@@ -1,12 +1,13 @@
 def sum_1_to_n(n):
     result = 0
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         result += i
     return result
 
+
 def factorial(n):
     result = 1
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         result *= i
     return result
 
@@ -18,29 +19,31 @@ def while_1():
     while iters_left != 0:
         ans += x
         iters_left -= 1
-        print(str(x)+'*'+str(iters_left)+'='+str(ans))
+        print(str(x) + "*" + str(iters_left) + "=" + str(ans))
+
 
 def gcd(a, b):
     r = a % b
-    while(r != 0):
+    while r != 0:
         a = b
         b = r
         r = a % b
     return b
 
+
 def guess_num():
     key = 6
     for i in range(5):
-        n = int(input('Input number: '))
+        n = int(input("Input number: "))
         if n == key:
-            print('Congratulations! You guessed it.')
+            print("Congratulations! You guessed it.")
             break
         elif n > key:
-            print('Too High! Try again.')
+            print("Too High! Try again.")
         else:
-            print('Too Low! Try again.')
+            print("Too Low! Try again.")
     else:
-        print('You failed to guess the number after 5 attempts.')
+        print("You failed to guess the number after 5 attempts.")
 
 
 def score_average():
@@ -49,12 +52,13 @@ def score_average():
     total = 0
     while score_count < total_count:
         score = float(input("Enter score:"))
-        if score < 0 or score > 100 :
+        if score < 0 or score > 100:
             continue
-        
+
         total += score
         score_count += 1
     return total / score_count
+
 
 def int_power(x, y):
     result = 1
@@ -62,7 +66,8 @@ def int_power(x, y):
         result *= x
         y -= 1
     return result
-        
+
+
 def int_to_bin(x):
     result = ""
     while x > 0:
@@ -70,6 +75,8 @@ def int_to_bin(x):
         x //= 2
     return result
     # อันนี้สั้นกว่า
+
+
 def int_to_bin(x: int) -> str:
     result = ""
     while x > 0:
@@ -77,6 +84,7 @@ def int_to_bin(x: int) -> str:
         x //= 2
     return result
     # return '{0:b}'.format(x)
+
 
 def find(word, letter):
     index = 0
@@ -86,6 +94,7 @@ def find(word, letter):
         index += 1
     return -1
 
+
 def count_letter(word, letter):
     count = 0
     for char in word:
@@ -93,9 +102,10 @@ def count_letter(word, letter):
             count += 1
     return count
 
+
 def test_emurate():
-    s = 'abcd'
-    for i,l in enumerate(s):
+    s = "abcd"
+    for i, l in enumerate(s):
         print(i, l)
 
     for i in range(len(s)):
@@ -103,16 +113,15 @@ def test_emurate():
 
     for l in s:
         print(l)
-    
 
 
 def merge_list(list_a, list_b):
     len_a = len(list_a)
     len_b = len(list_b)
-    i=0
-    j=0
+    i = 0
+    j = 0
     list_c = []
-    
+
     while i < len_a and j < len_b:
         if list_a[i] < list_b[j]:
             list_c.append(list_a[i])
@@ -120,33 +129,39 @@ def merge_list(list_a, list_b):
         else:
             list_c.append(list_b[j])
             j += 1
-    if i < len_a :
+    if i < len_a:
         return list_c
-    if j < len_b :
+    if j < len_b:
         return list_c + list_b[j:]
     return list_c
+
 
 def merge_list_1(list_a, list_b):
     if not list_a:
         return list_b
     if not list_b:
         return list_a
-    
+
     if list_a[0] < list_b[0]:
         sub_task = list_a[0]
         sub_sol = merge_list_1(list_a[1:], list_b)
     else:
         sub_task = list_b[0]
         sub_sol = merge_list_1(list_a, list_b[1:])
-    
+
     return [sub_task] + sub_sol
 
+
 import random
+
+
 def rand_num_in_range(lo, hi):
     return lo + (hi - lo) * random.random()
 
+
 def is_in_circle(x, y):
     return x**2 + y**2 <= 1
+
 
 def find_pi(sample):
     num_in_circle = 0
@@ -157,35 +172,38 @@ def find_pi(sample):
         num_in_circle += 1
     return (num_in_circle / sample) * 4
 
+
 def longestWord(*args):
-    if (len(args) == 0): return None
+    if len(args) == 0:
+        return None
     result = args[0]
     for word in args:
-        if (len(word) > len(result)):
+        if len(word) > len(result):
             result = word
     return result
 
+
 def sive_of_eratosthenes(n):
-    list_of_n = list(range(2, n+1))
+    list_of_n = list(range(2, n + 1))
     for current_num in list_of_n:
         if current_num > 1:
-            for multiple in range(current_num*2, n+1, current_num):
-                list_of_n[multiple-2] = 0
+            for multiple in range(current_num * 2, n + 1, current_num):
+                list_of_n[multiple - 2] = 0
     list_of_prime = list(filter(lambda x: x != 0, list_of_n))
     print(list_of_prime)
 
-def eratosthenes(n, show_step: bool=False):
+
+def eratosthenes(n, show_step: bool = False):
     list_number = list(range(2, n + 1))
     pir = 2
     index = 0
 
-    while pir ** 2 <= n:
+    while pir**2 <= n:
         list_number = list(filter(lambda x: x == pir or x % pir != 0, list_number))
 
-
         if show_step:
-            print(str(pir) + ':', list_number)
-            
+            print(str(pir) + ":", list_number)
+
         index += 1
         pir = list_number[index]
 
@@ -195,9 +213,11 @@ def eratosthenes(n, show_step: bool=False):
 def f(x, y=10):
     return (x, y)
 
+
 def f_d_u_darg(x, list_x=[]):
     list_x.append(x)
     return list_x
+
 
 def f_ine_work_around_for_muted(x, list_x=None):
     if list_x is None:
@@ -205,19 +225,23 @@ def f_ine_work_around_for_muted(x, list_x=None):
     list_x.append(x)
     return list_x
 
+
 # Function Parameter
+
 
 def derivative(f, x):
     h = 10**-8
-    return (f(x+h) - f(x))/h
+    return (f(x + h) - f(x)) / h
+
 
 def f(x):
-    return 4*x+3
+    return 4 * x + 3
+
 
 def g(x):
-    return 4*x**2 +3
+    return 4 * x**2 + 3
 
-        
+
 if __name__ == "__main__":
     # print(sum_1_to_n(3))
     # print(factorial(5))
@@ -230,16 +254,16 @@ if __name__ == "__main__":
     # print(int_to_bin(28))
     # print(find('abcd','d'))
     # print(count_letter('apple','p'))
-    
-    # list_a =[1, 3,4, 5,6]
-    # list_b =[2, 5, 7, 9, 10]
-    # print(merge_list(list_a,list_b))
+
+    list_a = [1, 3, 4, 5, 6]
+    list_b = [2, 5, 7, 9, 10]
+    print(merge_list(list_a, list_b))
     # print(merge_list_1(list_a,list_b))
-    
+
     # test_emurate()
-    
+
     # print(find_pi(10000))
-    
+
     # print(longestWord("this", "is", "really", "nice")) # really
     # mywords = ["this", "is", "really", "nice"]
     # print(longestWord(mywords))  # ['this', 'is', 'really', 'nice']
@@ -250,5 +274,5 @@ if __name__ == "__main__":
     # print(f_d_u_darg(1),f_d_u_darg(2))
     # print(f_ine_work_around_for_muted(1));
     # print(f_ine_work_around_for_muted(2));
-    # print(derivative(f,2))    
-    # print(derivative(g,2))    
+    # print(derivative(f,2))
+    # print(derivative(g,2))
