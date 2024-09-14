@@ -7,71 +7,37 @@
 
 def eeny_meeny(name_list: list[str], rhyme_len: int=4) -> str:
     first_letter = list(map(lambda x: x[0], name_list))
+    name_index_len = list(map(lambda x: len(x), name_list))
+    dicts = dict(map(lambda x: (sum(name_index_len[:x]), name_list[x]), range(len(name_index_len))))
     letter = list(''.join(name_list))
-    list_track = []
     
-    while len(name_list) > 1:
-    
-        for i in range(len(letter)):
-            if (i*rhyme_len)-1 < len(letter) and i != 0 :
-                # print(f"pop : {(i*rhyme_len)-1}",end='\n===\n')
-                list_track.append(letter[(i*rhyme_len)-1])
+    # print(dicts)  # { start_index : 'name' } 
+    star , rhyme = 0 , 0
+    # star : at star_index
+    # rhyme : count ... to rhyme_len  => check()
 
-        for i in range(len(list_track)):
-            if list_track[i] in first_letter:
-                name_list.pop(first_letter.index(list_track[i]))
-                return eeny_meeny(name_list)
-            else:
-                # print(f"remove : {list_track[i]}",end='\n===\n')
-                letter.remove(list_track[i])
-                continue
-            
-            
-    return ''.join(name_list)
-    
-    
-    
-    
-    
-    
-    
-    # score = []
-    # def fec(letter):
-    #     for i in range(len(letter)):
-    #             if (i*rhyme_len)-1 < len(letter) and i != 0 :
-    #                 print(f"pop : {(i*rhyme_len)-1}",end='\n===\n')
-                    
-    #                 if letter[(i*rhyme_len)-1] in first_letter:
-    #                     name_list.pop(first_letter.index(letter[(i*rhyme_len)-1]))
-                        
-    #                     first_letter.pop(first_letter.index(letter[(i*rhyme_len)-1]))
-    #                 score.append(letter[(i*rhyme_len)-1])
-    #                 letter.pop((i*rhyme_len)-1)
-    # fec(letter)
-    # return name_list, letter,first_letter, score
-    
-            
-    
+    while len(name_list) > 1:
+        star = star % len(letter)
+        if letter[star] == '*' : star += 1
+        elif rhyme == (rhyme_len - 1):
+            if letter[star] in first_letter:
+                name_list.remove(dicts[star])
+                letter = letter[:star] + (['*']*(len(dicts[star]))) + letter[(star+(len(dicts[star]))):]
+                # print(letter)
+                if len(name_list) == 1:
+                    return name_list[0]
+            else : letter[star] = '*'
+            star += 1
+            rhyme = 0
+        else :
+            star += 1
+            rhyme += 1
         
-    # def helper(letter: list, name_list: list, index: int) -> str:
-    #     if index >= len(letter):
-    #         index = index % rhyme_len
-        
-    #     if letter[index] in first_letter:
-    #         name_list.pop(first_letter.index(letter[index]))
-    #         first_letter.pop(first_letter.index(letter[index]))
-        
-    #     letter.pop(index)
-    #     new_index = (index * rhyme_len - 1) 
-    #     return helper(letter, name_list, new_index)
-    
-    # return helper(letter, name_list, index)
+    return name_list[0]
 
 if __name__ == '__main__':
     print(eeny_meeny(['John', 'Ann', 'Tom']))       # 'John'
-    print(eeny_meeny(['John', 'Ann', 'Tom']))       # 'John'
-    print(eeny_meeny(['Ann', 'Atom']))           # 'Ann'  
     print(eeny_meeny(['John', 'Ann', 'Tom'], 5))    # 'Tom'
-    
     print(eeny_meeny(['Ann', 'John', 'Meeneoi']))   # 'Meeneoi'
-    print(eeny_meeny(['Ann', 'John', 'Mee-neoi']))  # 'Ann'
+    print(eeny_meeny(['Ann', 'Atom']))              # 'Ann'  
+    print(eeny_meeny(['Anna', 'Atom']))             # 'Atom'
