@@ -5,9 +5,13 @@
 # 204111 Sec 001
 
 def scramble(word: str)->list[str]:
-    result = []
+    result = list(map(lambda x: word[1:],range(len(word)) ))
+    word_target = word[0]
     
-    
+    # for i in range(len(word)):
+    #     result.insert(i+1, word_target)
+    #     print(i)
+    return result
     
     
 if __name__ == '__main__':
