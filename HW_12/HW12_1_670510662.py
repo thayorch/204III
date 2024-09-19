@@ -5,15 +5,16 @@
 # 204111 Sec 001
 
 def scramble(word: str)->list[str]:
-    result = list(map(lambda x: word[1:],range(len(word)) ))
-    word_target = word[0]
+    if len(word) == 1:
+        return {word}
     
-    # for i in range(len(word)):
-    #     result.insert(i+1, word_target)
-    #     print(i)
-    return result
+    result = set()
     
+    for i,word_target in enumerate(word):
+        for item in scramble(word.replace(word_target, "",1)):        
+            result.add(word_target + item)
+    return list(result)
     
 if __name__ == '__main__':
-    print(scramble('Cat'))
-    # assert scramble('Cat') == ['Cat', 'Cta', 'aCt' ,'atC', 'tCa', 'taC'] 
+    print(scramble("abcdefghij"))
+    # print(scramble('Cat'))  
