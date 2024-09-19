@@ -9,9 +9,9 @@ def scramble(word: str)->list[str]:
         return {word}
     else:
         result = set()
-        for word_target in word:
+        for word_target in set(word):
             for item in scramble(word.replace(word_target, "",1)):        
-                result.append(word_target + item)
+                result.add(word_target + item)
         return list(result)
     
 if __name__ == '__main__':
