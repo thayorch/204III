@@ -7,13 +7,12 @@
 def scramble(word: str)->list[str]:
     if len(word) == 1:
         return {word}
-    
-    result = set()
-    
-    for i,word_target in enumerate(word):
-        for item in scramble(word.replace(word_target, "",1)):        
-            result.add(word_target + item)
-    return list(result)
+    else:
+        result = set()
+        for word_target in word:
+            for item in scramble(word.replace(word_target, "",1)):        
+                result.append(word_target + item)
+        return list(result)
     
 if __name__ == '__main__':
     print(scramble("abcdefghij"))
