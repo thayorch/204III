@@ -4,7 +4,6 @@
 # Lab13_2
 # 20411 Sec 001
 
-
 def square_matrix(list_x: list[list]) -> None:
 
     _matrix = [len(list_x)]
