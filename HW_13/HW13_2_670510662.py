@@ -12,7 +12,7 @@ def count_vote(pref_matrix: list) -> list:
             ranking[vote[i]] += (len(vote)-i)
     ranked_pokemon = sorted(list(map(lambda x,y: (x,y),ranking,ranking.values())))
     ranked_pokemon = sorted(ranked_pokemon, key=lambda x: x[1], reverse=True)
-    return ranked_pokemon 
+    return ranked_pokemon
 
 if __name__ == '__main__':
     pref_matrix = [

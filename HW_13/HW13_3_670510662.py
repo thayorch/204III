@@ -22,7 +22,7 @@ def sum_d_product(m: list[list[int]]) -> int:
             b = mt[i][1]
             c = mt[i+1][0]
             d = mt[i+1][1]
-            # print(a,b,c,d)            
+            # print(a,b,c,d)           
             dot_product =  a * d + c * b
             # print(dot_product)
             result.append(dot_product)

@@ -6,14 +6,13 @@
 
 
 def sand_towers(list_a):
-    # - divide and conquer problem
     tower = ''
 
     # - separate to 4 step
-    # 1. top of everything(empty zone)
+    # 1. top (empty zone)
     tower += blue_sky(list_a)
 
-    # 2. Flag at tallest tower
+    # 2. Flag at highest
     tower += flag(list_a)
 
     # 3. body of sand tower
@@ -25,7 +24,7 @@ def sand_towers(list_a):
     return tower
 
 
-# zone 1 " _ "
+# " _ "
 def blue_sky(list_a):
     sky = ''
 
@@ -36,7 +35,7 @@ def blue_sky(list_a):
     return sky
 
 
-# zone 2 -> 4 " + "
+# " + "
 def flag(list_a):
     top_of_tow = max(list_a)
     flag_s = ' '
@@ -50,7 +49,7 @@ def flag(list_a):
                     flag_s += '|>>~'
                 elif i < top_of_tow:
                     flag_s += '    '
-           
+
             elif j == 1:
                 if i == top_of_tow:
                     flag_s += '|   '
@@ -121,7 +120,6 @@ def big(list_a):
     return tower
 
 
-# zone 11 (floor)
 def base(list_a):
     b = '/'
     tower = 1
