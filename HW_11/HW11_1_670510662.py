@@ -24,7 +24,7 @@ def words_to_num(words):
     words = list(map(lambda i: i.split(), filter(lambda j: j, words.split(','))))
     # print(words)
     numbers = list(map(lambda j: list(map(lambda i: unit_list[i] if i in unit_list else thousand[i], j)), words))
-    
+
     for i in numbers:
         while len(i) > 1:
             if i[0] < i[1]:

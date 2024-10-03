@@ -4,12 +4,11 @@
 # HW13_EX
 # 204111 Sec 001
 
-
 def sand_towers(list_a):
     tower = ''
 
     # - separate to 4 step
-    # 1. top (empty zone)
+    # 1. top    (empty zone)
     tower += blue_sky(list_a)
 
     # 2. Flag at highest
