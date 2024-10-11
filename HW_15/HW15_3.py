@@ -38,9 +38,9 @@ def count_segment(list_a: list[tuple[float]]) -> tuple[int]:
             if px + r > 0:
                 q4 += 1
             if py + r > 0:
-                q1 += 1
-            if zero_radius < r:
                 q2 += 1
+            if zero_radius < r:
+                q1 += 1
         elif px > 0 and py < 0:   #Q4
             q4 += 1
             if px - r < 0:
