@@ -7,7 +7,7 @@
 import copy
 def sum_d_product(m: list[list[int]]) -> int:
     mt= copy.deepcopy(m)
-    # print(mt)
+    # print(mt)d
     if len(mt) == 2:
         a = mt[0][0]
         b = mt[0][1]
