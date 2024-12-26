@@ -3,10 +3,6 @@
 # Lab05_1
 # 204111
 
-def main():
-    print(palindrome_without(str(input()),str(input())))
-    # test_palindrome_without()
-
 def palindrome_without(text: str, c: str)->bool:
     text= text.lower()
     c = c.lower()
@@ -29,4 +25,4 @@ def test_palindrome_without():
     print("All test cases passed!")
 
 if __name__ == "__main__":
-    main()
+    test_palindrome_without()

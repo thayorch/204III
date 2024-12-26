@@ -3,7 +3,7 @@
 # 670510662
 # HW15_1
 # 204111 Sec 001
-
+    
 def manga_add(manga_shelf: list[tuple[str, int]], new_m: tuple[str, int], show_steps: bool = False):
     low = 0
     high = len(manga_shelf)-1

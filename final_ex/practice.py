@@ -1,7 +1,5 @@
 #!usr/bin/env python3
 
-from math import floor
-
 def readfile(filename, mode="rt"):
     with open(filename, mode, encoding="utf-8" ) as input_:
         return input_.read()
@@ -24,11 +22,11 @@ def square_matrix_bin_to_int(filename)->list[int]:
 # Compass Binary
 
 def vertical_to_int(x):
-    target = floor(len(x)/2)
+    target = len(x)//2
     return "".join(map(lambda index: index[target] ,x))
 
 def horizontal_to_int(x):
-    target = floor(len(x)/2)
+    target = len(x)//2
     return "".join(x[target])
 
 def left_top_to_int(x):  
@@ -45,8 +43,6 @@ def left_bottom_to_int(x):
         result.append(x[i][(len(x)-1)-i])
     return "".join(reversed(result))
 
-
-
     
 if __name__ == '__main__':
-    print(square_matrix_bin_to_int("infile.txt"))
+    print(square_matrix_bin_to_int("infile2.txt"))
